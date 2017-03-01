@@ -3,6 +3,7 @@ package com.stc.poc.rest.ws.impl;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.stc.poc.model.beans.DeductionList;
+import com.stc.poc.model.beans.StcResponseBean;
 import com.stc.poc.rest.RemoteServiceConfiguration;
 import com.stc.poc.rest.ServiceClient;
 import com.stc.poc.rest.exception.ServicesConnectException;
@@ -41,36 +42,34 @@ public class DeductionServiceRestImpl extends ServiceClient implements Deduction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void cancelDeduction() {
-		// TODO Auto-generated method stub
+	public StcResponseBean cancelDeduction(String authId, String deductionId) throws ServicesConnectException {
 		
+		JsonObject jsonRet = super.getForObject(super.getUrl("/canceldeduction?authguid="+authId+"&deductionId="+deductionId), JsonObject.class);
+		StcResponseBean retVal = new Gson().fromJson(jsonRet, StcResponseBean.class);
+		return retVal;
+	}
+
+	@Override
+	public StcResponseBean submitDeductionService()
+			throws ServicesConnectException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StcResponseBean getDeductionDetailById(String authId, String id)
+			throws ServicesConnectException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StcResponseBean getDeductionTypeDetails(String authId)
+			throws ServicesConnectException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void submitDeductionService() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void getDeductionDetailById() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void getDeductionTypeDetails() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

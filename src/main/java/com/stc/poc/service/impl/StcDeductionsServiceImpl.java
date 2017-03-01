@@ -3,9 +3,11 @@ package com.stc.poc.service.impl;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.stc.poc.model.beans.DeductionDTO;
 import com.stc.poc.model.beans.DeductionList;
+import com.stc.poc.model.beans.StcResponseBean;
 import com.stc.poc.rest.RemoteServiceConfiguration;
 import com.stc.poc.rest.RemoteServiceConfigurationFactory;
 import com.stc.poc.rest.exception.ServicesConnectException;
@@ -39,11 +41,24 @@ public class StcDeductionsServiceImpl implements IStcDeductionsService {
 		
 	}
 
+	/**
+	 * Cancel deduction
+	 */
 	@Override
-	public void cancelDeduction() {
-		// TODO Auto-generated method stub
+	public StcResponseBean cancelDeduction(String authId, String deductionId) throws ServicesConnectException {
 		
+		RemoteServiceConfiguration configuration = RemoteServiceConfigurationFactory.getInstance().getConfiguration();
+
+		if (configuration != null) {
+			
+			StcResponseBean restResp =new DeductionServiceRestImpl(configuration).cancelDeduction(authId, deductionId);
+			return restResp;
+			
+		}
+		return null;
 	}
+	
+	
 
 	@Override
 	public void submitDeductionService() {

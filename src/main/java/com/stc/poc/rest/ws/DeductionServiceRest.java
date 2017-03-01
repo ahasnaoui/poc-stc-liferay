@@ -1,6 +1,7 @@
 package com.stc.poc.rest.ws;
 
 import com.stc.poc.model.beans.DeductionList;
+import com.stc.poc.model.beans.StcResponseBean;
 import com.stc.poc.rest.exception.ServicesConnectException;
 
 /**
@@ -20,21 +21,25 @@ public interface DeductionServiceRest {
 	/**
 	 * Cancel deduction
 	 */
-	public void cancelDeduction();
+	public StcResponseBean cancelDeduction(String authId, String deductionId) throws ServicesConnectException;
 	
 	/**
 	 * Submit a deduction
 	 */
-	public void submitDeductionService();
+	public StcResponseBean submitDeductionService() throws ServicesConnectException;
 	
 	/**
 	 * retrieve the deduction detail by Id
 	 */
-	public void getDeductionDetailById();
+	public StcResponseBean getDeductionDetailById(String authId, String id) throws ServicesConnectException;
 	
 	/**
 	 * Retrieve deduction type details
 	 */
-	public void getDeductionTypeDetails();
+	public StcResponseBean getDeductionTypeDetails(String authId) throws ServicesConnectException;
+	
+	
+	
+	
 
 }

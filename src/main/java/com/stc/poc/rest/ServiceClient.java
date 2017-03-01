@@ -118,8 +118,8 @@ public class ServiceClient {
 
     private ClientHttpRequestFactory getClientHttpRequestFactory() {
     	SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
-        factory.setReadTimeout(10000);
-        factory.setConnectTimeout(10000);
+        factory.setReadTimeout(30000);
+        factory.setConnectTimeout(30000);
         
         return factory;
     }

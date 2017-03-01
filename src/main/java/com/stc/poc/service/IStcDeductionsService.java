@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.stc.poc.model.beans.DeductionDTO;
 import com.stc.poc.model.beans.DeductionList;
+import com.stc.poc.model.beans.StcResponseBean;
 import com.stc.poc.rest.exception.ServicesConnectException;
 
 /**
@@ -23,7 +24,7 @@ public interface IStcDeductionsService {
 	/**
 	 * Cancel deduction
 	 */
-	public void cancelDeduction();
+	public StcResponseBean cancelDeduction(String authId, String deductionId) throws ServicesConnectException;
 	
 	/**
 	 * Submit a deduction
