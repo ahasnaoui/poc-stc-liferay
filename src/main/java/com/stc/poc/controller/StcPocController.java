@@ -145,14 +145,13 @@ public class StcPocController  {
 	@RenderMapping(params="action=editDeduction")
 	public String editDeduction(RenderRequest actionRequest, RenderResponse actionResponse) {
 		
-		_log.info(">>>>>>>>> Edit Deduction");
 		String deductionId = ParamUtil.get(actionRequest, "deductionId", "");
 		if(deductionId != null) {
 			try {
 				
 				//facade.editDeduction(deductionId, actionRequest);
 				if(!SessionErrors.isEmpty(actionRequest)) {
-					_log.info(">>>>>>>>> ErrorEdit Deduction");
+					SessionErrors.add(actionRequest, "error-edit-deduction");
 				} else {
 					SessionMessages.add(actionRequest, "succes-delete-deduction");
 				}
