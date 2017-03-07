@@ -18,7 +18,6 @@ package com.stc.poc.controller;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
-import javax.portlet.PortletURL;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
@@ -40,7 +39,6 @@ import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.stc.poc.facade.StcPocFacade;
-import com.stc.poc.model.DeductionSearchContainer;
 import com.stc.poc.model.beans.DeductionDTO;
 import com.stc.poc.rest.exception.ServicesConnectException;
 
@@ -87,9 +85,9 @@ public class StcPocController  {
 		}
 		
 		if (navigation == null || navigation.equals("")) {
-			PortletURL portletURL = response.createRenderURL();
-			DeductionSearchContainer searchContainer = new DeductionSearchContainer(request, portletURL);
-			model.addAttribute("searchContainer", searchContainer);
+//			PortletURL portletURL = response.createRenderURL();
+//			DeductionSearchContainer searchContainer = new DeductionSearchContainer(request, portletURL);
+//			model.addAttribute("searchContainer", searchContainer);
 			
 			navigation = "view";
 			
